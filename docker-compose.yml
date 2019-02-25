@@ -18,8 +18,6 @@ services:
             # host devices, ...) NB: it's a security issue, so be warned !
             #- USER=root
         #privileged: true
-        volumes:
-            - ./volumes/xo-server:/storage
         logging: &logging
             driver: "json-file"
             options:
@@ -30,7 +28,5 @@ services:
         container_name: XO_redis
         image: redis:alpine
         command: redis-server --appendonly yes
-        volumes:
-            - ./volumes/redis:/data
         logging:
             <<: *logging
